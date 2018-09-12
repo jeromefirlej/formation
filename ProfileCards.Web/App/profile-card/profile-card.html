@@ -1,0 +1,31 @@
+﻿<link rel="stylesheet" href="app/profile-card/profile-card.css">
+
+<link href="//maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css" rel="stylesheet">
+<div id="profile" class="page center-block"></div>
+<script id="profile-template" type="text/x-jquery-tmpl">
+    <div class="col-lg-3 col-sm-6" style="width: 100%;margin: 0 auto;">
+        <div class="card hovercard">
+            <div class="cardheader">
+            </div>
+            <div class="avatar">
+                <img alt="" src="${$item.getBackgroundImage()}">
+            </div>
+            <div class="info">
+                <div class="title">
+                    <a target="_blank" href="${site.url}">${site.name}</a>
+                </div>
+                {{each(prop, val) info}}
+                <div class="desc">${val}</div>
+                {{/each}}
+            </div>
+            <div class="bottom">
+                {{each(prop, val) socialNetwork}}
+                <a class="btn btn-primary btn-${val.name} btn-sm" href="${val.url}">
+                    <i class="fa fa-${val.name}"></i>
+                </a>
+                {{/each}}
+            </div>
+        </div>
+    </div>
+</script>
+<script src="app/profile-card/profile-card.js"></script>
